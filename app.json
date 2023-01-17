@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "PiedATerre-App",
+    "slug": "PiedATerre-App",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "PiedATerre-App"
+}
