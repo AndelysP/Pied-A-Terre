@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "label-cars-app",
-    "slug": "label-cars-app",
+    "name": "PiedATerre-app",
+    "slug": "PiedATerre-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash.jpg",
       "resizeMode": "contain",
-      "backgroundColor": "#CCE3DE"
+      "backgroundColor": "#A4C3B2"
     },
     "assetBundlePatterns": [
       "**/*"
