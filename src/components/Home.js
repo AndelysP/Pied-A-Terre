@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, SafeAreaView, ImageBackground, Dimensions, FlatList, TouchableOpacity, Image, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Houses from '../../Houses'
+import houses from '../../Houses'
 
 const Home = (props) => {
 
@@ -15,7 +15,7 @@ const Home = (props) => {
                 />
                 <View>
                     <Text style={styles.houseText}>{item.name}</Text>
-                    <Text style={styles.houseTextPrice}>{item.price.toLocaleString('fr-Fr')}€ par jour</Text>
+                    <Text style={styles.houseTextPrice}>{item.price.toLocaleString('fr-Fr')}€ par nuit</Text>
                     <TouchableOpacity onPress={() => props.navigation.navigate('HouseItem', { item })}>
                     <Button
                             title='Réserver'
@@ -27,7 +27,7 @@ const Home = (props) => {
         );
     }
 
-    const housesMostreserved = Houses.sort((itemA, itemB) => itemB.reservations - itemA.reservations).slice(0, 5);
+    const housesMostReserved = houses.sort((itemA, itemB) => itemB.reservations - itemA.reservations).slice(0, 5);
 
 
     return (
@@ -46,7 +46,7 @@ const Home = (props) => {
                             colors={["transparent", "#000"]}
                             style={styles.heroTextContainer}
                         >
-                            <Text style={styles.heroText}>{Houses.length} Logements à découvrir</Text>
+                            <Text style={styles.heroText}>{houses.length} Logements à découvrir</Text>
                         </LinearGradient>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -55,7 +55,7 @@ const Home = (props) => {
                     <Text style={styles.sectionTitle}>Les plus réservés</Text>
 
                     <FlatList 
-                        data={housesMostreserved}
+                        data={housesMostReserved}
                         renderItem={({ item }) => renderMostReservedHouse(item)}
                         keyExtractor={item => item.id}
                         numColumns="2"
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     },
 
     sectionTitle: {
-        color: "#2D4F6C",
+        color: "#52675E",
         fontSize: 20,
         textAlign: "center",
         marginBottom: 10
@@ -138,11 +138,5 @@ const styles = StyleSheet.create({
     houseTextPrice: {
         padding: 5,
         fontSize: 12
-    },
-
-    bookButton: {
-        fontSize: 10,
-        color: "#147EFB",
-        textAlign: "center",
     }
 });
