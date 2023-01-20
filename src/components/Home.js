@@ -5,6 +5,7 @@ import houses from '../../Houses'
 
 const Home = (props) => {
 
+    // Affichage du prix, de l'image et du nom des logements 
     const renderMostReservedHouse = (item) => {
         return (
             <View style={styles.houseItem}>
@@ -17,7 +18,7 @@ const Home = (props) => {
                     <Text style={styles.houseText}>{item.name}</Text>
                     <Text style={styles.houseTextPrice}>{item.price.toLocaleString('fr-Fr')}€ par nuit</Text>
                     <TouchableOpacity onPress={() => props.navigation.navigate('HouseItem', { item })}>
-                    <Button
+                        <Button
                             title='Réserver'
                             color="#6B9080"
                         />
@@ -27,6 +28,7 @@ const Home = (props) => {
         );
     }
 
+    // Tri du tableau de locations pour afficher les locations les plus réservées 
     const housesMostReserved = houses.sort((itemA, itemB) => itemB.reservations - itemA.reservations).slice(0, 5);
 
 
@@ -54,7 +56,7 @@ const Home = (props) => {
                 <View style={styles.mostReservedContainer}>
                     <Text style={styles.sectionTitle}>Les plus réservés</Text>
 
-                    <FlatList 
+                    <FlatList
                         data={housesMostReserved}
                         renderItem={({ item }) => renderMostReservedHouse(item)}
                         keyExtractor={item => item.id}

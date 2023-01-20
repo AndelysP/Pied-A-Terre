@@ -74,7 +74,7 @@ const houses = [
     {
         id: '4',
         name: "Appartement lumineux au coeur de Cotignac",
-        desc: "Grand 2 pièces au calme entièrement refait à neuf, décoré avec soin. Profitez du calme, du confort et du frais de cet appartement situé au cœur de la Provence. Visitez Cotignac, ses petits commerces atypiques, son marché, ses ruelles... Régalez-vous parmi les nombreux restaurants du village. Dégustez de somptueux vins provençaux directement dans les vignobles alentours. Echappez-vous un peu plus loin pour découvrir Sillans-la-Cascade et les rivières Gorges du Verdon....",
+        desc: "Grand 2 pièces au calme entièrement refait à neuf, décoré avec soin. Profitez du calme, du confort et du frais de cet appartement situé au cœur de la Provence. Visitez Cotignac, ses petits commerces atypiques, son marché, ses ruelles... Régalez-vous parmi les nombreux restaurants du village. Dégustez de somptueux vins provençaux directement dans les vignobles alentours.",
         options: {
             capacity: 3,
             room: 1,

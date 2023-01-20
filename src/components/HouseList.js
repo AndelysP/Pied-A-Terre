@@ -4,6 +4,7 @@ import houses from '../../Houses'
 
 const HouseList = (props) => {
 
+  // Création d'un d'état filtres qui prend en valeurs des paramètres qui seront appelés plus tard pour gérer l'utilisation du filtre. Par défaut il est invisible, il sera appelé lorsque l'on clique dessus.
   const [filters, setFilters] = useState({
     visible: false,
     priceStart: 0,
@@ -12,6 +13,8 @@ const HouseList = (props) => {
     capacityEnd: 16
   })
 
+  // La fonction "useEffect" permet de définir un effet de composant qui s'exécute lorsque le composant est rendu pour la première fois dans l'interface utilisateur. 
+  // L'effet ajoute un bouton de filtre à la barre d'en-tête droite de la navigation. Le tableau vide ([]) passé en deuxième argument de useEffect, signifie que l'effet ne se re-déclenchera pas lorsque les props ou l'état du composant changent.
   useEffect(() => {
     props.navigation.setOptions({
       headerRight: () => (
@@ -22,6 +25,7 @@ const HouseList = (props) => {
     });
   }, [])
 
+  // Permet l'affichage du filtre en mettant à jour l'état local du state
   const toggleFilters = () => {
     setFilters({
       ...filters,
@@ -96,6 +100,7 @@ const HouseList = (props) => {
     }
   }
 
+  // Permet de filtrer les locations correspondant aux critères de l'utilisateur
   const houseFiltered = houses.filter((item) => ((item.price >= filters.priceStart) && (item.price <= filters.priceEnd) && (item.options.capacity >= filters.capacityStart) && (item.options.capacity <= filters.capacityEnd)))
 
   return (

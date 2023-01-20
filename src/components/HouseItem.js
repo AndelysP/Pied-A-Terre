@@ -7,6 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const HouseItem = (props) => {
+  // Fonction de composant qui définit un état local 'item' initialisé dans les paramètres de la route, permet de maintenir un état interne qui est mis à jour lorsque le composant est utilisé. 
   const [item, setItem] = useState(props.route.params.item)
 
   return (
@@ -34,6 +35,7 @@ const HouseItem = (props) => {
           <Text style={styles.tenantTextContainer}>{item.tenant.name}</Text>
           <Text style={styles.tenantTextContainer}><AntDesign name='star' style={{color: '#ABA351'}} />{item.tenant.avis} avis vérifiés</Text>
           <Text style={styles.tenantTextContainer}><MaterialIcons name='language' />{item.tenant.language}</Text>
+          {/* Ternaire qui affiche le statut du locataire, s'il est profesionnel ou non */}
           <Text style={styles.tenantTextContainer}>{item.tenant.pro ? "Professionnel" : "Particulier"}</Text>
         </View>
       </View>
