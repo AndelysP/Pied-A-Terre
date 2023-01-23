@@ -23,7 +23,7 @@ const HouseList = (props) => {
         </TouchableOpacity>
       )
     });
-  }, [])
+  })
 
   // Permet l'affichage du filtre en mettant à jour l'état local du state
   const toggleFilters = () => {
