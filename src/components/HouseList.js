@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, TextInput, View, StyleSheet, Image, TouchableOpacity, FlatList, ScrollView, Dimensions, SafeAreaView } from 'react-native'
+import { Text, Button, TextInput, View, StyleSheet, Image, TouchableOpacity, FlatList, ScrollView, Dimensions, SafeAreaView, Pressable } from 'react-native'
 import houses from '../../Houses'
 
 const HouseList = (props) => {
@@ -94,7 +94,23 @@ const HouseList = (props) => {
               keyboardType="number-pad"
               onEndEditing={(e) => handleChange(e, "capacityEnd")}
             />
+            <View style={styles.resetContainer}>
+              <Pressable
+                style={styles.reset}
+                // Remise à zéro du filtre au clic
+                onPress={() => setFilters({
+                  priceStart: 0,
+                  priceEnd: 2000,
+                  capacityStart: 1,
+                  capacityEnd: 16
+                })}
+              >
+                <Text style={styles.textReset}>Réinitialiser</Text>
+              </Pressable>
+            </View>
           </View>
+
+
         </View>
       );
     }
@@ -171,23 +187,45 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1
+    zIndex: 1,
+  },
+
+  resetContainer: {
+    paddingTop: 10
+  },
+
+  reset: {
+    borderRadius: 10,
+    alignItems: 'center',
+    backgroundColor: '#6B9080'
+
+  },
+
+  textReset: {
+    textTransform: 'uppercase',
+    color: '#fff',
+    justifyContent: 'center',
+    fontSize: 15,
+    paddingVertical: 12,
+    paddingHorizontal: 32
   },
 
   filter: {
     flexDirection: 'row',
     justifyContent: "space-evenly",
     alignItems: 'center',
+    flexWrap: 'wrap',
+    flexWrap: 'wrap',
     paddingTop: 20,
     paddingBottom: 15
   },
 
   input: {
     width: vw / 4,
-    padding: 10,
+    padding: 6,
     borderColor: "#52675E",
     borderWidth: 1,
-    borderRadius: 15
+    borderRadius: 10
   },
 
   empty: {
