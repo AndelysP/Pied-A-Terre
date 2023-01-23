@@ -14,7 +14,7 @@ const HouseList = (props) => {
   })
 
   // La fonction "useEffect" permet de définir un effet de composant qui s'exécute lorsque le composant est rendu pour la première fois dans l'interface utilisateur. 
-  // L'effet ajoute un bouton de filtre à la barre d'en-tête droite de la navigation. Le tableau vide ([]) passé en deuxième argument de useEffect, signifie que l'effet ne se re-déclenchera pas lorsque les props ou l'état du composant changent.
+  // L'effet ajoute un bouton de filtre à la barre d'en-tête droite de la navigation. 
   useEffect(() => {
     props.navigation.setOptions({
       headerRight: () => (
@@ -99,6 +99,7 @@ const HouseList = (props) => {
                 style={styles.reset}
                 // Remise à zéro du filtre au clic
                 onPress={() => setFilters({
+                  visible: filters.visible,
                   priceStart: 0,
                   priceEnd: 2000,
                   capacityStart: 1,
@@ -116,7 +117,7 @@ const HouseList = (props) => {
     }
   }
 
-  // Permet de filtrer les locations correspondant aux critères de l'utilisateur
+  // Permet de filtrer les locations correspondants aux critères de l'utilisateur
   const houseFiltered = houses.filter((item) => ((item.price >= filters.priceStart) && (item.price <= filters.priceEnd) && (item.options.capacity >= filters.capacityStart) && (item.options.capacity <= filters.capacityEnd)))
 
   return (
